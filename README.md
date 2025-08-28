@@ -17,7 +17,8 @@ The goal is to demonstrate data wrangling, visualization, and storytelling skill
 
 ---
 
-## 📊 Problem Statement
+## 📊 Why?
+Growing up with incredibly troubled skin, I've tried many products to help calm down my inflammation and acne. I'm particularly passionate about skincare and finding the best products to try and add to my self care regimen. As a Korean American, I wanted to specifically focus on Korean vs Western skincare products to maximize my options.
 
 > **How do Korean and Western skincare products differ in terms of price, formulation complexity, and consumer satisfaction?**
 
@@ -30,18 +31,27 @@ By analyzing ingredient density, product types, and pricing, we aim to inform da
 ```
 skincare/
   ├── data/
-  │   └── final_skincare_products.csv                    #final dataset for EDA
-  │   └── skincare_full.csv                              #ignore
+  │   └── final_skincare_products.csv                    #final cleaned dataset (olive & sephora combined) for EDA
+  │   └── skincare_full.csv                              #ignore (realized there was 1 more cleaning to be done after I exported this)
   │   ├── olive/
-  │       ├── skincare_full.csv
+  │       ├── oliveyoung_all_scraped_batches.csv         #scraped data using selenium
+  │       ├── oliveyoung_sunscreen_scrapedv2.csv         #sunscreen data scraped separately 
+  │       ├── oliveyoung_sunscreen_parsed.csv            #sunscreen data parsed from html from developer inspect tool
+  │       ├── olive_cleaned.csv                          #cleaned olive young data
   │   ├── sephora/
-  │       ├── skincare_full.csv
+  │       ├── product_info.csv                           #dataset obtained from Kaggle
+  │       ├── sephora_cleaned.csv                        #cleaned sephora data
   ├── notebooks/
   │   ├── 00_datascraping.ipynb                          # Scrapes ingredient + detail data from Olive Young
   │   ├── 01_data_cleaning_and_preparation.ipynb         # Cleans, filters, and preprocesses the dataset
   │   └── 02_eda_visualization.ipynb                     # Exploratory Data Analysis and insights
   ├── visualizations/
-  │   └── plots
+  │   ├── ingredient_heat.png                            # ingredient heat map western vs k-beauty
+  │   ├── Price_Product_Type.png                         # Price points of product types 
+  │   ├── Product_Type_Region.png                        # Product Type count Western vs Korean 
+  │   ├── Rating_Product_Type.png                        # Ratings of product types Western vs Korean 
+  │   └── value_score.png                                # Box plot of value scores (rating/price)
+
   ├── README.md
 
 ```
@@ -90,8 +100,8 @@ skincare/
 
 ## 🔮 Future Ideas
 
-- 🤖 Build an **AI-powered skincare recommender**
-- 🔍 Add ingredient **safety classification (e.g., EWG rating)**
+- 🤖 Build an **AI-powered skincare recommender** - recommend potential ingredient combinations for additional customization
+- 🔍 Add ingredient **safety classification (e.g., EWG rating)** (similar to Yuka)
 - 📦 Cluster products by ingredient similarity or skin concerns
 - 📈 Tableau or Streamlit app version (if time allows)
 
